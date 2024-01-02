@@ -1,0 +1,17 @@
+// CORS (Cross-Origin Resource Sharing)
+Access to fetch at 'http://localhost:4000/api/todo' from origin 'http://localhost:3001' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.
+
+  client : localhost: 3001 ( react 개발 서버)
+  server : localhost: 4000
+
+  origin이 다르다(데이터의 출처) : 데이터를 막 꺼내갈수 없다.
+    ex)   naver.com
+          google.com    >> origin이 다르다.
+
+
+// fetch('주소')
+    .then((response) => response.json())
+    .then((data) => setTodoList(data))    // 여기서 setTodoList에 data를 넣음으로써 상태가 계속해서 변화하게 된다. 그럼 리액트는 무한으로 리랜더링이 실행하게 된다.
+                                              리액트는 상태가 변화하게 되면 리랜더링이 실행하게된다.
+
+                                              // 해결방법으로는 useEffect(()=>{}) 를 사용
